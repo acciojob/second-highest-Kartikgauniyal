@@ -10,31 +10,28 @@
 	<script>
 		function secondHighest(arr) {
 			//Write your code here
-				// Convert elements to numbers
-			for (let i = 0; i < arr.length; i++) {
-				arr[i] = Number(arr[i]);
-			}
-						// Initialize the highest and second highest
+
+		if (arr.length < 2) return -Infinity;
+
 			let highest = -Infinity;
 			let secondHighest = -Infinity;
 
-			// Find the highest and second highest numbers
 			for (let i = 0; i < arr.length; i++) {
-				if (arr[i] > highest) {
+				let num = parseInt(arr[i]);
+				if (num > highest) {
 					secondHighest = highest;
-					highest = arr[i];
-				} else if (arr[i] > secondHighest && arr[i] < highest) {
-					secondHighest = arr[i];
+					highest = num;
+				} else if (num > secondHighest && num < highest) {
+					secondHighest = num;
 				}
 			}
-						// If there is no second highest number
-			if (secondHighest === -Infinity) {
-				return null;
-			}
-			
-			return secondHighest;
 
-			
+			if (secondHighest === -Infinity) {
+				return -Infinity;
+			} else {
+				return secondHighest;
+			}
+		}
 
 			
 		}
